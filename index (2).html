@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actu Vélo · Semaine du 17 fév. 2026 · ECTA Saint-Alban</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --marine:   #0b1a35;
+    --marine-m: #142444;
+    --marine-l: #1e3260;
+    --rose:     #e8296e;
+    --rose-vif: #ff4d8d;
+    --rose-pale:#ffd6e7;
+    --blanc:    #fdf8fb;
+    --gris:     #c4bbc5;
+    --noir:     #060d1a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--marine);
+    color: var(--blanc);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ══ HEADER ══ */
+  header {
+    background: var(--noir);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    border: 3px solid rgba(232,41,110,0.1);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 3px solid rgba(232,41,110,0.18);
+    pointer-events: none;
+  }
+
+  .header-top-bar {
+    background: var(--rose);
+    padding: 6px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+  }
+
+  .header-body {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .logo-wrap { display: flex; align-items: center; gap: 18px; }
+
+  .roue-svg {
+    width: 70px; height: 70px; flex-shrink: 0;
+    animation: spin 18s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .club-info h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem; font-weight: 900;
+    color: var(--blanc); line-height: 1; letter-spacing: -0.5px;
+  }
+  .club-info h1 span { color: var(--rose-vif); }
+  .club-info p {
+    font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gris); margin-top: 5px;
+  }
+
+  .header-date .label {
+    font-size: 0.7rem; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gris); margin-bottom: 4px;
+  }
+  .header-date .week {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--blanc);
+  }
+  .header-date .races {
+    margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;
+  }
+
+  .tag {
+    background: rgba(232,41,110,0.18);
+    border: 1px solid rgba(232,41,110,0.4);
+    color: var(--rose-vif);
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 1px; padding: 3px 9px;
+    text-transform: uppercase; border-radius: 2px;
+  }
+
+  /* ══ DIVIDER ══ */
+  .divider {
+    background: linear-gradient(90deg, var(--rose) 0%, #b5005a 100%);
+    padding: 11px 28px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; font-size: 0.72rem; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 600; color: white;
+    flex-wrap: wrap;
+  }
+  .divider .sep { opacity: 0.45; }
+
+  /* ══ MAIN ══ */
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 44px 28px 64px;
+  }
+
+  .section-label {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 22px;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--rose);
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(232,41,110,0.25);
+  }
+
+  /* ══ UNE ══ */
+  .une { margin-bottom: 44px; animation: fadeUp 0.5s ease 0.1s both; }
+
+  .une-card {
+    display: grid; grid-template-columns: 1fr 370px;
+    background: var(--marine-m);
+    border: 1px solid rgba(232,41,110,0.2);
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    position: relative;
+  }
+  .une-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--rose-vif));
+  }
+  .une-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,41,110,0.3);
+  }
+
+  .une-text { padding: 40px 36px; }
+
+  .une-tag {
+    display: inline-block;
+    background: var(--rose); color: white;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 12px; margin-bottom: 18px;
+  }
+
+  .une-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900; line-height: 1.15;
+    color: var(--blanc); margin-bottom: 16px;
+  }
+
+  .une-text p {
+    font-size: 1rem; line-height: 1.75;
+    color: var(--gris); margin-bottom: 24px;
+  }
+
+  .btn-lire {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--rose); color: white;
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 11px 22px;
+    transition: background 0.2s, gap 0.2s;
+  }
+  .btn-lire:hover { background: var(--rose-vif); gap: 14px; }
+
+  .une-side {
+    background: linear-gradient(160deg, var(--marine-l), var(--marine-m));
+    padding: 32px 28px;
+    display: flex; flex-direction: column; justify-content: center; gap: 6px;
+    border-left: 1px solid rgba(232,41,110,0.15);
+  }
+
+  .une-side-title {
+    font-size: 0.65rem; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--rose);
+    font-weight: 600; margin-bottom: 10px;
+  }
+
+  .fact-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 12px;
+  }
+  .fact-row:last-child { border-bottom: none; }
+  .fact-key { font-size: 0.72rem; color: var(--gris); }
+  .fact-val { font-size: 0.88rem; font-weight: 600; color: var(--blanc); text-align: right; }
+  .fact-val.rose { color: var(--rose-vif); }
+
+  /* ══ GRILLE 3 ══ */
+  .grid-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 18px; margin-bottom: 44px;
+    animation: fadeUp 0.5s ease 0.25s both;
+  }
+
+  .card {
+    background: var(--marine-m);
+    border: 1px solid rgba(232,41,110,0.1);
+    display: flex; flex-direction: column; overflow: hidden;
+    transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232,41,110,0.4);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  .card-banner { height: 4px; background: linear-gradient(90deg, var(--rose), var(--rose-vif)); opacity: 0.6; }
+  .card:hover .card-banner { opacity: 1; }
+
+  .card-top {
+    padding: 22px 22px 0;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .card-emoji { font-size: 2.2rem; line-height: 1; }
+  .card-cat { font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rose); }
+
+  .card-body {
+    padding: 14px 22px 22px;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .card-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700; line-height: 1.3;
+    color: var(--blanc); margin-bottom: 10px;
+  }
+  .card-body p {
+    font-size: 0.85rem; line-height: 1.65; color: var(--gris); flex: 1;
+  }
+
+  .card-cta {
+    margin-top: 18px;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--rose-vif);
+    display: flex; align-items: center; gap: 6px; transition: gap 0.2s;
+  }
+  .card:hover .card-cta { gap: 10px; }
+
+  /* ══ GRILLE 2 ══ */
+  .grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 18px; margin-bottom: 44px;
+    animation: fadeUp 0.5s ease 0.35s both;
+  }
+  .card-wide .card-body h3 { font-size: 1.3rem; }
+
+  /* ══ FOOTER ══ */
+  footer {
+    background: var(--noir);
+    border-top: 3px solid var(--rose);
+    padding: 30px 28px; text-align: center;
+  }
+  .f-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 900; color: var(--blanc); margin-bottom: 8px;
+  }
+  .f-logo span { color: var(--rose-vif); }
+  footer p {
+    font-size: 0.75rem; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+  }
+  footer a { color: var(--rose); }
+  footer a:hover { color: var(--rose-vif); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .une-card { grid-template-columns: 1fr; }
+    .une-side { border-left: none; border-top: 1px solid rgba(232,41,110,0.15); }
+    .grid-3 { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 580px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .une-text h2 { font-size: 1.5rem; }
+    .club-info h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top-bar">
+    <span>🚴 ECTA Saint-Alban · Entente Cyclotouriste</span>
+    <span>Mardi 17 février 2026</span>
+  </div>
+  <div class="header-body">
+    <div class="logo-wrap">
+      <svg class="roue-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" stroke="#e8296e" stroke-width="3.5"/>
+        <circle cx="50" cy="50" r="28" stroke="rgba(232,41,110,0.3)" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <circle cx="50" cy="50" r="7" fill="#e8296e"/>
+        <line x1="50" y1="5"  x2="50" y2="43" stroke="#e8296e" stroke-width="2"/>
+        <line x1="50" y1="57" x2="50" y2="95" stroke="#e8296e" stroke-width="2"/>
+        <line x1="5"  y1="50" x2="43" y2="50" stroke="#e8296e" stroke-width="2"/>
+        <line x1="57" y1="50" x2="95" y2="50" stroke="#e8296e" stroke-width="2"/>
+        <line x1="19" y1="19" x2="38" y2="38" stroke="#e8296e" stroke-width="2"/>
+        <line x1="62" y1="62" x2="81" y2="81" stroke="#e8296e" stroke-width="2"/>
+        <line x1="81" y1="19" x2="62" y2="38" stroke="#e8296e" stroke-width="2"/>
+        <line x1="38" y1="62" x2="19" y2="81" stroke="#e8296e" stroke-width="2"/>
+      </svg>
+      <div class="club-info">
+        <h1>ECTA <span>Saint-Alban</span></h1>
+        <p>Actualité Cyclisme · Semaine du 16 au 22 février 2026</p>
+      </div>
+    </div>
+    <div class="header-date">
+      <div class="label">Courses de la semaine</div>
+      <div class="week">🏆 Semaine chargée !</div>
+      <div class="races">
+        <span class="tag">UAE Tour</span>
+        <span class="tag">Tour de Provence</span>
+        <span class="tag">Tour de Murcie</span>
+        <span class="tag">Tour d'Andalousie</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="divider">
+  <span>🌍 UAE Tour (16–22 fév.)</span>
+  <span class="sep">·</span>
+  <span>🇫🇷 Tour de Provence (13–15 fév.)</span>
+  <span class="sep">·</span>
+  <span>🇪🇸 Tour de Murcie (13–14 fév.)</span>
+  <span class="sep">·</span>
+  <span>🌹 Tour d'Andalousie (18–22 fév.)</span>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <div class="section-label">🏆 À la une</div>
+
+  <div class="une">
+    <a class="une-card" href="https://www.ski-nordique.net/?id=6740260" target="_blank" rel="noopener">
+      <div class="une-text">
+        <span class="une-tag">🌍 UAE Tour 2026 · WorldTour · En cours</span>
+        <h2>Del Toro vs Evenepoel : le duel des titans aux Émirats</h2>
+        <p>
+          La 8ᵉ édition de l'UAE Tour se déroule du 16 au 22 février 2026. Le jeune Mexicain <strong>Isaac Del Toro</strong> (UAE Team Emirates-XRG) défend ses couleurs face à un <strong>Remco Evenepoel</strong> (Red Bull-Bora) en grande forme. Au programme : bordures dans le désert, un chrono à Al Hudayriyat, la nouvelle et redoutable montée de <strong>Jebel Mobrah</strong> (14,9 km à 8,6 % avec des pentes à 17 % !) et le classique sommet du <strong>Jebel Hafeet</strong>. À noter les forfaits de Pogacar et Vingegaard.
+        </p>
+        <span class="btn-lire">Suivre la course →</span>
+      </div>
+      <div class="une-side">
+        <div class="une-side-title">Infos clés · UAE Tour 2026</div>
+        <div class="fact-row">
+          <span class="fact-key">Dates</span>
+          <span class="fact-val">16 – 22 fév. 2026</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Catégorie</span>
+          <span class="fact-val">WorldTour (2.UWT)</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Favoris</span>
+          <span class="fact-val rose">Del Toro · Evenepoel</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Chrono</span>
+          <span class="fact-val">Étape 2 · 12,2 km</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Nouveauté 🔥</span>
+          <span class="fact-val rose">Jebel Mobrah</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Col-reine</span>
+          <span class="fact-val">Jebel Hafeet (Ét. 6)</span>
+        </div>
+        <div class="fact-row">
+          <span class="fact-key">Absents</span>
+          <span class="fact-val">Pogacar · Vingegaard</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 3 CARTES -->
+  <div class="section-label">📰 Les résultats de la semaine</div>
+
+  <div class="grid-3">
+
+    <a class="card" href="https://www.total-velo.com/le-classement-general-final-du-tour-de-la-provence-2026/" target="_blank" rel="noopener">
+      <div class="card-banner"></div>
+      <div class="card-top">
+        <span class="card-emoji">🌿</span>
+        <span class="card-cat">🇫🇷 Tour de Provence 2026</span>
+      </div>
+      <div class="card-body">
+        <h3>Riccitello sacré, Laurance explose en montagne</h3>
+        <p>
+          L'Américain <strong>Matthew Riccitello</strong> (23 ans, Decathlon CMA CGM) remporte le Tour de Provence 2026 au sommet de la Montagne de Lure. Le Français <strong>Axel Laurance</strong> (INEOS Grenadiers) s'impose en solitaire lors de la 3ᵉ étape. Carlos Rodriguez et Brandon Rivera (INEOS) complètent le podium final.
+        </p>
+        <div class="card-cta">Lire les résultats →</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.eurosport.fr/cyclisme/vuelta-a-murcia/2026/tour-de-murcie-victoire-finale-de-marc-soler-apres-lannulation-de-la-derniere-etape-pour-vents-violents_sto23270859/story.shtml" target="_blank" rel="noopener">
+      <div class="card-banner"></div>
+      <div class="card-top">
+        <span class="card-emoji">💨</span>
+        <span class="card-cat">🇪🇸 Tour de Murcie 2026</span>
+      </div>
+      <div class="card-body">
+        <h3>Soler vainqueur d'une course dévastée par le vent</h3>
+        <p>
+          <strong>Marc Soler</strong> (UAE Emirates-XRG) s'impose au classement général d'un Tour de Murcie chaotique. La 2ᵉ étape annulée après 24 km à cause de rafales violentes côté méditerranéen. Au total : seulement 89 km en 2 jours ! Tom Pidcock prend la 3ᵉ place.
+        </p>
+        <div class="card-cta">Lire les résultats →</div>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.total-velo.com/uae-tour-2026-parcours-engages-diffusion-tv/" target="_blank" rel="noopener">
+      <div class="card-banner"></div>
+      <div class="card-top">
+        <span class="card-emoji">🏔️</span>
+        <span class="card-cat">🌍 UAE Tour · Parcours détaillé</span>
+      </div>
+      <div class="card-body">
+        <h3>Jebel Mobrah : un mini-Angliru dans le désert !</h3>
+        <p>
+          La grande nouveauté de l'édition 2026 : la montée de <strong>Jebel Mobrah</strong> (Étape 3). Un mur de 14,9 km à 8,6 % de moyenne avec les 6 derniers kilomètres à 12 % et des pentes dépassant les 17 %. De quoi faire exploser le peloton bien avant Jebel Hafeet.
+        </p>
+        <div class="card-cta">Voir le parcours →</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- 2 CARTES -->
+  <div class="section-label">🔭 À suivre cette semaine</div>
+
+  <div class="grid-2">
+
+    <a class="card card-wide" href="https://lemagducyclisme.fr/2026/02/07/tour-dandalousie-2026-chaine-tv-heure-et-favoris/" target="_blank" rel="noopener">
+      <div class="card-banner"></div>
+      <div class="card-top">
+        <span class="card-emoji">🌹</span>
+        <span class="card-cat">🇪🇸 Tour d'Andalousie · 18 – 22 fév.</span>
+      </div>
+      <div class="card-body">
+        <h3>Le Tour d'Andalousie ouvre ses portes mercredi !</h3>
+        <p>
+          Tenant du titre, le Français <strong>Pavel Sivakov</strong> (UAE) sera sur le départ avec <strong>Tim Wellens</strong>, <strong>Tom Pidcock</strong> (Pinarello Q36.5) et <strong>Romain Grégoire</strong> (Groupama-FDJ United). Trois équipes françaises en lice : FDJ United, TotalEnergies et Cofidis. Idéal pour préparer les classiques de printemps.
+        </p>
+        <div class="card-cta">Favoris & programme →</div>
+      </div>
+    </a>
+
+    <a class="card card-wide" href="https://www.total-velo.com/classement-general-tour-de-la-provence-2026-1e-etape/" target="_blank" rel="noopener">
+      <div class="card-banner"></div>
+      <div class="card-top">
+        <span class="card-emoji">🌟</span>
+        <span class="card-cat">🇫🇷 Tour de Provence · Étape 1</span>
+      </div>
+      <div class="card-body">
+        <h3>Arnaud Tendon, la surprise provençale de l'année</h3>
+        <p>
+          Le Suisse <strong>Arnaud Tendon</strong> (Van Rysel-Roubaix, 23 ans) crée la surprise en remportant la 1ʳᵉ étape de Marseille à Saint-Victoret (163 km). L'Italien Mattia Bais finit 2ᵉ à 5 secondes, l'Américain Luke Lamperti prend la 3ᵉ place. Une belle sensation pour ce coureur discret !
+        </p>
+        <div class="card-cta">Voir le classement →</div>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">ECTA <span>Saint-Alban</span></div>
+  <p>Entente Cyclotouriste · <a href="https://ecta-saintalban.clubeo.com/" target="_blank">ecta-saintalban.clubeo.com</a> · Semaine du 17 fév. 2026</p>
+</footer>
+
+</body>
+</html>
